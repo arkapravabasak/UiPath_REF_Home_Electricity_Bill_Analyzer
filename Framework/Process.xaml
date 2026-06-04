@@ -129,7 +129,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1193,3281" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1193,3394" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Data/Output" Name="strLocalPath" />
       <Variable x:TypeArguments="x:String" Name="strPDFFileName" />
@@ -187,15 +187,15 @@
       </If.Else>
     </If>
     <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="566,89" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="566,2860" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="566,2973" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="564,2548" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="564,2661" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="530,2488" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Process Sequence" sap:VirtualizedContainerService.HintSize="530,2601" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -207,13 +207,13 @@
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Read Mail Sequence Passed&quot;]" />
-            <ui:ForEach x:TypeArguments="ugm:GmailMessage" CurrentIndex="[intMailIndex]" DisplayName="For Each currentGmailMessage - Download, Analyze and Upload Excel" sap:VirtualizedContainerService.HintSize="496,2053" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listGmailMessages]">
+            <ui:ForEach x:TypeArguments="ugm:GmailMessage" CurrentIndex="[intMailIndex]" DisplayName="For Each currentGmailMessage - Download, Analyze and Upload Excel" sap:VirtualizedContainerService.HintSize="496,2166" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listGmailMessages]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="ugm:GmailMessage">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ugm:GmailMessage" Name="currentGmailMessage" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="494,1931" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="494,2044" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,14 +284,15 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <If Condition="[System.IO.File.Exists(strLocalPath+&quot;/&quot;+strPDFFileName)]" DisplayName="If - Check and Delete PDF File from Local" sap:VirtualizedContainerService.HintSize="460,582" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[System.IO.File.Exists(strLocalPath+&quot;/&quot;+strPDFFileName)]" DisplayName="If - Check and Delete PDF File from Local" sap:VirtualizedContainerService.HintSize="460,695" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,339" sap2010:WorkflowViewState.IdRef="Sequence_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
+                          <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[strLocalPath+&quot;/&quot;+strPDFFileName]" />
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;File Deleted from Local&quot;]" />
                         </Sequence>
                       </If.Then>
