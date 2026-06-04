@@ -127,7 +127,7 @@
       <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Gemini_Extract_Bill_Data" sap:VirtualizedContainerService.HintSize="1193,3476" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Gemini_Extract_Bill_Data" sap:VirtualizedContainerService.HintSize="1193,3419" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="geminiText" />
       <Variable x:TypeArguments="njl:JObject" Name="responseJson" />
@@ -135,7 +135,7 @@
       <Variable x:TypeArguments="x:String" Name="jsonBody" />
       <Variable x:TypeArguments="x:String" Name="promptText" />
       <Variable x:TypeArguments="x:String" Name="base64Pdf" />
-      <Variable x:TypeArguments="x:String" Default="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=YOUR_API_KEY" Name="strEndpointURL" />
+      <Variable x:TypeArguments="x:String" Name="strEndpointURL" />
       <Variable x:TypeArguments="s:Byte[]" Name="pdfBytes" />
       <Variable x:TypeArguments="x:String" Name="strAPIKey" />
       <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="httpResponseContent" />
@@ -145,7 +145,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Sequence - Gemini_Extract_Bill_Data" sap:VirtualizedContainerService.HintSize="520,3453" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence - Gemini_Extract_Bill_Data" sap:VirtualizedContainerService.HintSize="520,3396" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -188,7 +188,7 @@
           </Sequence>
         </If.Else>
       </If>
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="486,2972" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="486,2915" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -196,13 +196,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <TryCatch.Try>
-          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="484,2375" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="484,2318" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Try Sequence" sap:VirtualizedContainerService.HintSize="450,2315" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Try Sequence" sap:VirtualizedContainerService.HintSize="450,2258" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="strDummyUserName" />
                 <Variable x:TypeArguments="ss:SecureString" Name="sstrPassword" />
@@ -229,49 +229,6 @@
                   <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(pdfBytes)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                <ui:CommentOut.Body>
-                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_3">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[promptText]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["You are an electricity bill extraction agent.
-
-Analyze the attached electricity bill PDF.
-
-Extract these fields:
-- apartment
-- consumer_number
-- bill_number
-- bill_date
-- due_date
-- bill_amount
-- units_consumed
-- address
-
-Return ONLY valid JSON.
-
-Do not explain anything.
-Do not include markdown.
-Do not wrap response in ```json."]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </Sequence>
-                </ui:CommentOut.Body>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:CommentOut>
               <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GeminiAPIKey&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sstrPassword]" Username="[strDummyUserName]" />
               <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_7">
                 <Assign.To>
