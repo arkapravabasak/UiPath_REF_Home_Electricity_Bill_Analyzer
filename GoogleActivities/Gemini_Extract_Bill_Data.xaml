@@ -137,7 +137,7 @@
       <Variable x:TypeArguments="x:String" Name="base64Pdf" />
       <Variable x:TypeArguments="x:String" Default="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=YOUR_API_KEY" Name="strEndpointURL" />
       <Variable x:TypeArguments="s:Byte[]" Name="pdfBytes" />
-      <Variable x:TypeArguments="x:String" Default="AQ.Ab8RN6Ltyff4a3TwxAI28Fp2eqwSAp32YPn5JLFcYBAMpvz2tQ" Name="strAPIKey" />
+      <Variable x:TypeArguments="x:String" Name="strAPIKey" />
       <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="httpResponseContent" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
