@@ -138,7 +138,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update_GoogleSheet" sap:VirtualizedContainerService.HintSize="1193,4792" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_GoogleSheet" sap:VirtualizedContainerService.HintSize="1281,4792" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataRow" Name="drNewDataRow" />
       <Variable x:TypeArguments="x:String" Name="strDriveFileID" />
