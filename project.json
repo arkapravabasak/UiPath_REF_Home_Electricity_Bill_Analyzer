@@ -1,5 +1,5 @@
 {
-  "name": "REF_Home_Electricity_Bill_Analyzer",
+  "name": "REF_AI_Powered_Home_Electricity_Bill_Analyzer",
   "projectId": "cac8ad94-836c-40c5-b6ca-873ca0c1a254",
   "description": "Robotic Enterprise Framework solution to download electricity bills from an Electricity Provider, capture bill specific data using a Gemini AI Agent, update the captured data into an excel file, upload the process or failed files into a GDrive folder.",
   "main": "Main.xaml",

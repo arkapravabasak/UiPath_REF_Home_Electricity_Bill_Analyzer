@@ -138,7 +138,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update_GoogleSheet" sap:VirtualizedContainerService.HintSize="1281,4792" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_GoogleSheet" sap:VirtualizedContainerService.HintSize="1193,4792" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataRow" Name="drNewDataRow" />
       <Variable x:TypeArguments="x:String" Name="strDriveFileID" />
@@ -300,7 +300,7 @@
                         <OutArgument x:TypeArguments="x:Object">[drNewDataRow("ConsumerNo")]</OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:Object">[jsonBillDataFromResponse("consumer_number").ToString.Trim]</InArgument>
+                        <InArgument x:TypeArguments="x:Object">[in_PDFFileName.Split("_")(2).Trim]</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
